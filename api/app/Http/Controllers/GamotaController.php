@@ -97,7 +97,8 @@ class GamotaController extends Controller
                             }
                         }
                     }
-                    $data = 'send email success';
+                    $errors['error_code'] = 0;
+                    $data                 = 'send email success';
                     $currentPage++;
                 } while ($currentPage <= $users->lastPage());
             }
