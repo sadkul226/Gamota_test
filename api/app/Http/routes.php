@@ -14,8 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::group(['prefix' => 'api/v1'], function() {
+    Route::get('users', [
+        'uses' => 'GamotaController@get',
+        'as'   => 'users.get'
+    ]);
 
-Route::get('api/v1/users', [
-    'uses' => 'GamotaController@get',
-    'as'   => 'users.get'
-]);
+    Route::get('users/sendemails', [
+        'uses' => 'GamotaController@sendEmail',
+        'as'   => 'users.sendEmail'
+    ]);
+});
